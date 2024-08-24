@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="utf-8" />
+    <title>关于 | 帅气怨言&#39;s Blog</title>
+    <meta name="author" content="shuaiqiyy" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="shuaiqiyy,帅气怨言,sqyy," />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>帅气怨言&#39;S BLOG</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;主页</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;标签</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;归档</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;分类</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;关于</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;帅气怨言&#39;S BLOG</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">主页</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">标签</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">归档</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">分类</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">关于</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>关于</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/8/24
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h3 id="初次见面，-你好呀٩（●ᴗ●）۶"><a href="#初次见面，-你好呀٩（●ᴗ●）۶" class="headerlink" title="初次见面， 你好呀٩（●ᴗ●）۶"></a>初次见面， 你好呀٩（●ᴗ●）۶</h3><p><img src="https://readme-typing-svg.demolab.com/?lines=Hello,I%27m;Shuaiqiyy" alt="Typing SVG"></p>
+<blockquote>
+<p>—凭文学是无法打倒敌人的…能打倒敌人的学问只有化学和物理！</p>
+</blockquote>
+<h1 id="我是谁？"><a href="#我是谁？" class="headerlink" title="我是谁？"></a>我是谁？</h1><p>我是帅气怨言，一位十分“普通”的中学生，尽管你可能看不出来我是个中学生，但我确实啊。</p>
+<p>平常喜欢自己搞一些小项目，用到什么就学什么，所以个人属性过于复杂（BuShi。</p>
+<p>如果你和我一样，很高兴可以和你成为好朋友</p>
+<ul>
+<li><p>是一名♾️年的mc萌新玩家</p>
+</li>
+<li><p>主要使用前端开发(html)</p>
+</li>
+<li><p>目前正在学习c++开发</p>
+</li>
+<li><p>对二次元女生极其感兴趣</p>
+</li>
+</ul>
+<blockquote>
+<p>热知识, 即使我在学校, 依然可以网上冲浪 qwq！</p>
+</blockquote>
+<h1 id="想去做的事情？"><a href="#想去做的事情？" class="headerlink" title="想去做的事情？"></a>想去做的事情？</h1><blockquote>
+<p>“Dream big and dare to fail.”<br>— Norman Vaughan, Explore</p>
+</blockquote>
+<blockquote>
+<p>敢于梦想并敢于失败。<br>— 诺曼·恩沃恩</p>
+</blockquote>
+<p>万一就实现了呢 <code>: )</code></p>
+<ol>
+<li><p>✅考上一个不错的高中</p>
+</li>
+<li><p>✅拥有一个自己的博客</p>
+</li>
+<li><p>✅热爱自己的热爱</p>
+</li>
+<li><p>✅UI设计</p>
+</li>
+<li><p>✅剪辑</p>
+</li>
+<li><p>拥有属于自己的工作室</p>
+</li>
+<li><p>一个属于自己的机房</p>
+</li>
+<li><p>和喜欢的人看喜欢的电影</p>
+</li>
+<li><p>环球旅行✈️</p>
+</li>
+<li><p>上一所好大学</p>
+</li>
+</ol>
+<h1 id="为什么要写博客？"><a href="#为什么要写博客？" class="headerlink" title="为什么要写博客？"></a>为什么要写博客？</h1><p>在日益臃肿和发展迅速的网络上找到一块我的小天地。</p>
+<p>也可以向志同道合的你分享我新学习的知识，记录生活中的趣事，在快节奏的生活中留下一些难忘的回忆！</p>
+<blockquote>
+<p>在现在这个快节奏且物质的时代, 在这个人人被浅层阅读和短视频绑架的时代, 人总是需要些时间, 静下心来创作些东西, 在创作中我们总会发现自己之前未曾发现的事, 这不仅仅是对生活的记录, 更是对精神世界的丰富。<br>— 小指针</p>
+</blockquote>
+<h1 id="哪里还能找到我？"><a href="#哪里还能找到我？" class="headerlink" title="哪里还能找到我？"></a>哪里还能找到我？</h1><p>潜水于各大平台 emmm，（but是个小透明）</p>
+<ul>
+<li><p>Github:shuaiqiyy </p>
+</li>
+<li><p>Blog:帅气怨言 </p>
+</li>
+<li><p>知乎：帅气怨言 </p>
+</li>
+<li><p>mail: 帅气怨言</p>
+</li>
+</ul>
+<p>当然还有些其他的, 这里就不写出来啦, 快来和我交朋友呀。</p>
+<blockquote>
+<p>几たびの戦场を越えて不败.（纵横无数战场而不败）</p>
+</blockquote>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2024 - 2024 帅气怨言&#39;s Blog
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;shuaiqiyy
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>
