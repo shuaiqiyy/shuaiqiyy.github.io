@@ -203,7 +203,16 @@
     <div class="content" v-pre>
         <p>虚拟机是什么：虚拟机（VirtualMachine）指通过软件模拟的具有完整硬件系统功能的、运行在一个完全隔离环境中的完整计算机系统。在实体计算机中能够完成的工作在虚拟机中都能够实现。在计算机中创建虚拟机时，需要将实体机的部分硬盘和内存容量作为虚拟机的硬盘和内存容量。每个虚拟机都有独立的CMOS、硬盘和操作系统，可以像使用实体机一样对虚拟机进行操作。</p>
 <p>虚拟机可以让你在一个系统中体验到其他系统的软件，总体来说很方便。</p>
-<h2 id="一-下载VMware"><a href="#一-下载VMware" class="headerlink" title="一.下载VMware"></a>一.下载VMware</h2><p>首先我们要去到VMware的官网下载最新的软件</p>
+<!-- toc -->
+
+<ul>
+<li><a href="#%E4%B8%80%E4%B8%8B%E8%BD%BDvmware">一.下载VMware</a></li>
+<li><a href="#%E4%BA%8C%E5%AE%89%E8%A3%85vmware">二.安装VMware</a></li>
+<li><a href="#%E4%B8%89%E6%89%93%E5%BC%80%E8%99%9A%E6%8B%9F%E5%8C%96">三.打开虚拟化</a><br>  * <a href="#1%E8%BF%9B%E5%85%A5bios-setup%E8%AE%BE%E7%BD%AE%E7%95%8C%E9%9D%A2">1.进入BIOS Setup设置界面。</a><br>  * <a href="#2%E4%BD%BF%E7%94%A8%E9%94%AE%E7%9B%98%E7%9A%84%E5%8F%B3%E6%96%B9%E5%90%91%E9%94%AE%E9%80%89%E4%B8%AD-configuration%E8%8F%9C%E5%8D%95%E7%84%B6%E5%90%8E%E4%BD%BF%E7%94%A8%E4%B8%8B%E6%96%B9%E5%90%91%E9%94%AE%E9%80%89%E4%B8%ADintel-virtual-technology%E9%80%89%E9%A1%B9%E5%B9%B6%E5%9B%9E%E8%BD%A6%E5%A6%82%E5%9B%BE%E6%89%80%E7%A4%BA">2.使用键盘的右方向键选中 “Configuration”菜单，然后使用下方向键选中“Intel Virtual Technology”选项并回车；如图所示：</a><br>  * <a href="#3%E5%9C%A8%E5%BC%B9%E5%87%BA%E7%9A%84%E8%AE%BE%E7%BD%AE%E7%AA%97%E5%8F%A3enabled%E8%A1%A8%E7%A4%BA%E5%90%AF%E7%94%A8disabled%E8%A1%A8%E7%A4%BA%E7%A6%81%E7%94%A8%E9%BB%98%E8%AE%A4%E8%AE%BE%E7%BD%AE-%E5%A6%82%E9%9C%80%E5%BC%80%E5%90%AF%E8%AF%B7%E9%80%89%E6%8B%A9enabled%E5%90%8E%E5%9B%9E%E8%BD%A6%E5%A6%82%E5%9B%BE%E6%89%80%E7%A4%BA">3.在弹出的设置窗口，Enabled表示启用，Disabled表示禁用（默认设置）。如需开启，请选择“Enabled”后回车；如图所示:</a><br>  * <a href="#4-%E6%9C%80%E5%90%8E%E6%8C%89%E9%94%AE%E7%9B%98%E7%9A%84f10%E7%83%AD%E9%94%AE%E6%B3%A8%E9%83%A8%E5%88%86%E6%9C%BA%E5%9E%8B%E9%9C%80%E8%A6%81%E9%85%8D%E5%90%88fnf10%E8%B0%83%E5%87%BA%E4%BF%9D%E5%AD%98%E5%AF%B9%E8%AF%9D%E6%A1%86%E9%80%89%E6%8B%A9yes%E4%BF%9D%E5%AD%98%E9%80%80%E5%87%BA%E5%B9%B6%E8%87%AA%E5%8A%A8%E9%87%8D%E5%90%AF%E7%94%B5%E8%84%91%E5%A6%82%E5%9B%BE%E6%89%80%E7%A4%BA">4、最后按键盘的F10热键（注：部分机型需要配合Fn+F10）调出保存对话框，选择“Yes”保存退出并自动重启电脑；如图所示：</a><br>  * <a href="#5-%E4%B8%8A%E8%BF%B0%E6%93%8D%E4%BD%9C%E5%90%8E%E5%8D%B3%E5%8F%AF%E5%90%AF%E7%94%A8cpu%E7%9A%84vt-x%E8%99%9A%E6%8B%9F%E5%8C%96%E5%8A%9F%E8%83%BD%E6%94%AF%E6%8C%81-%E4%BD%86%E6%98%AF%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E6%98%AF%E8%99%9A%E6%8B%9F%E5%8C%96%E6%8A%80%E6%9C%AF%E9%9C%80%E8%A6%81cpu%E5%90%8C%E6%97%B6%E6%94%AF%E6%8C%81">5、上述操作后，即可启用CPU的VT-x虚拟化功能支持。但是需要注意的是：虚拟化技术需要CPU同时支持。</a><br>  * <a href="#%E6%B8%A9%E9%A6%A8%E6%8F%90%E7%A4%BA">温馨提示：</a></li>
+</ul>
+<!-- tocstop -->
+
+<h2><span id="一下载vmware">一.下载VMware</span></h2><p>首先我们要去到VMware的官网下载最新的软件</p>
 <p>链接：<a target="_blank" rel="noopener" href="https://www.vmware.com/cn/products/workstation-pro.html">VMware官网</a></p>
 <p><img src="/img/vmware/1.jpg"></p>
 <p>点击下载，然后选择Workstation Pro（实在截不了屏）</p>
@@ -212,7 +221,7 @@
 <p><img src="/img/vmware/3.jpg"></p>
 <p>然后如下图选择立即下载</p>
 <p>等待漫长的下载……</p>
-<h2 id="二-安装VMware"><a href="#二-安装VMware" class="headerlink" title="二.安装VMware"></a>二.安装VMware</h2><p>这个其实一直next就好了</p>
+<h2><span id="二安装vmware">二.安装VMware</span></h2><p>这个其实一直next就好了</p>
 <p>emm第一次安装完会提示让你激活，如下图：</p>
 <p><img src="/img/vmware/4.jpg"></p>
 <p>这里我悄悄的告诉你们激活码，嘘~</p>
@@ -221,17 +230,17 @@
 <p>UY758-0RXEQ-M81WP-8ZM7Z-Y3HDA<br>VF750-4MX5Q-488DQ-9WZE9-ZY2D6U<br>U54R-FVD91-488PP-7NNGC-ZFAX6<br>YC74H-FGF92-081VZ-R5QNG-P6RY4<br>YC34H-6WWDK-085MQ-JYPNX-NZRA2 </p>
 </blockquote>
 <p>任选其一输入进去就好。</p>
-<h2 id="三-打开虚拟化"><a href="#三-打开虚拟化" class="headerlink" title="三.打开虚拟化"></a>三.打开虚拟化</h2><p>在安装好开始使用时可能会使用不了，要去BIOS开启虚拟化设置</p>
+<h2><span id="三打开虚拟化">三.打开虚拟化</span></h2><p>在安装好开始使用时可能会使用不了，要去BIOS开启虚拟化设置</p>
 <p>首先肯定是进入BIOS</p>
 <p>虽然BIOS成百上千，但功能都是一样的，对硬件信息进行保存设置，所以设置方法上也大同小异，90%以上的电脑设置方法都差不多，进入BIOS按键也就那几个，只要把上面的英文加上这几个按键，进入BIOS就轻车熟路了。</p>
 <p>下面说一说BIOS的基本操作，市面上的BIOS大可分为三种</p>
 <p>第一种是比较高级的有鼠标的，界面很好看的这种还请自己摸索因为我没有这样的（笑）</p>
 <p>第二种和第三种我来告诉大家</p>
-<h6 id="1-进入BIOS-Setup设置界面。"><a href="#1-进入BIOS-Setup设置界面。" class="headerlink" title="1.进入BIOS Setup设置界面。"></a>1.进入BIOS Setup设置界面。</h6><h6 id="2-使用键盘的右方向键选中-“Configuration”菜单，然后使用下方向键选中“Intel-Virtual-Technology”选项并回车；如图所示："><a href="#2-使用键盘的右方向键选中-“Configuration”菜单，然后使用下方向键选中“Intel-Virtual-Technology”选项并回车；如图所示：" class="headerlink" title="2.使用键盘的右方向键选中 “Configuration”菜单，然后使用下方向键选中“Intel Virtual Technology”选项并回车；如图所示："></a>2.使用键盘的右方向键选中 “Configuration”菜单，然后使用下方向键选中“Intel Virtual Technology”选项并回车；如图所示：</h6><p><img src="/img/vmware/5.jpg"></p>
+<h6><span id="1进入bios-setup设置界面">1.进入BIOS Setup设置界面。</span></h6><h6><span id="2使用键盘的右方向键选中-configuration菜单然后使用下方向键选中intel-virtual-technology选项并回车如图所示">2.使用键盘的右方向键选中 “Configuration”菜单，然后使用下方向键选中“Intel Virtual Technology”选项并回车；如图所示：</span></h6><p><img src="/img/vmware/5.jpg"></p>
 <p>注意：部分机型使用Intel Virtualization Technology表示，AMD CPU则使用“SVM Support”表示</p>
-<h6 id="3-在弹出的设置窗口，Enabled表示启用，Disabled表示禁用（默认设置）。如需开启，请选择“Enabled”后回车；如图所示"><a href="#3-在弹出的设置窗口，Enabled表示启用，Disabled表示禁用（默认设置）。如需开启，请选择“Enabled”后回车；如图所示" class="headerlink" title="3.在弹出的设置窗口，Enabled表示启用，Disabled表示禁用（默认设置）。如需开启，请选择“Enabled”后回车；如图所示:"></a>3.在弹出的设置窗口，Enabled表示启用，Disabled表示禁用（默认设置）。如需开启，请选择“Enabled”后回车；如图所示:</h6><p><img src="/img/vmware/6.jpg"></p>
-<h6 id="4、最后按键盘的F10热键（注：部分机型需要配合Fn-F10）调出保存对话框，选择“Yes”保存退出并自动重启电脑；如图所示："><a href="#4、最后按键盘的F10热键（注：部分机型需要配合Fn-F10）调出保存对话框，选择“Yes”保存退出并自动重启电脑；如图所示：" class="headerlink" title="4、最后按键盘的F10热键（注：部分机型需要配合Fn+F10）调出保存对话框，选择“Yes”保存退出并自动重启电脑；如图所示："></a>4、最后按键盘的F10热键（注：部分机型需要配合Fn+F10）调出保存对话框，选择“Yes”保存退出并自动重启电脑；如图所示：</h6><p><img src="/img/vmware/7.jpg"></p>
-<h6 id="5、上述操作后，即可启用CPU的VT-x虚拟化功能支持。但是需要注意的是：虚拟化技术需要CPU同时支持。"><a href="#5、上述操作后，即可启用CPU的VT-x虚拟化功能支持。但是需要注意的是：虚拟化技术需要CPU同时支持。" class="headerlink" title="5、上述操作后，即可启用CPU的VT-x虚拟化功能支持。但是需要注意的是：虚拟化技术需要CPU同时支持。"></a>5、上述操作后，即可启用CPU的VT-x虚拟化功能支持。但是需要注意的是：虚拟化技术需要CPU同时支持。</h6><h6 id="温馨提示："><a href="#温馨提示：" class="headerlink" title="温馨提示："></a>温馨提示：</h6><p>1.若在BIOS中找不到“Intel Virtual Technology”或“Intel Virtualization Technology”或“SVM Support”选项，一般表示该电脑不支持虚拟化技术</p>
+<h6><span id="3在弹出的设置窗口enabled表示启用disabled表示禁用默认设置-如需开启请选择enabled后回车如图所示">3.在弹出的设置窗口，Enabled表示启用，Disabled表示禁用（默认设置）。如需开启，请选择“Enabled”后回车；如图所示:</span></h6><p><img src="/img/vmware/6.jpg"></p>
+<h6><span id="4-最后按键盘的f10热键注部分机型需要配合fnf10调出保存对话框选择yes保存退出并自动重启电脑如图所示">4、最后按键盘的F10热键（注：部分机型需要配合Fn+F10）调出保存对话框，选择“Yes”保存退出并自动重启电脑；如图所示：</span></h6><p><img src="/img/vmware/7.jpg"></p>
+<h6><span id="5-上述操作后即可启用cpu的vt-x虚拟化功能支持-但是需要注意的是虚拟化技术需要cpu同时支持">5、上述操作后，即可启用CPU的VT-x虚拟化功能支持。但是需要注意的是：虚拟化技术需要CPU同时支持。</span></h6><h6><span id="温馨提示">温馨提示：</span></h6><p>1.若在BIOS中找不到“Intel Virtual Technology”或“Intel Virtualization Technology”或“SVM Support”选项，一般表示该电脑不支持虚拟化技术</p>
 <p>2.只有使用微软Hyper-V、思杰XenServer、VMware ESXi系列产品才需要启用VT-x、VT-d或VT-c等虚拟化技术。平常情况下使用微软Virtual PC、VMware Workstation、VirtualBox等虚拟机软件，启用VT-x虚拟化功能的意义并不大</p>
 <p>现在您已经可以使用VMware Workstation Pro了，可以开始安装虚拟机了</p>
 
